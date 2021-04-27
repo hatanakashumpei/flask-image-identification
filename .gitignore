@@ -1,2 +1,3 @@
 .python-version
-secret/*
+secret/api.py
+data/*/*
