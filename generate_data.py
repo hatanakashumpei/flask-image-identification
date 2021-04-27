@@ -17,10 +17,10 @@ def get_classes():
     Returns:
         list: class names
     """
-    data_list_paths = list(glob.glob("./data/*"))
+    data_list_paths = list(glob.glob("./img/*"))
     class_names = []
     for data_list_path in data_list_paths:
-        name = data_list_path.replace("./data/", "")
+        name = data_list_path.replace("./img/", "")
         class_names.append(name)
 
     return class_names
