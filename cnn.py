@@ -57,11 +57,10 @@ def model_eval(model, x_test, y_test):
     print(f'Test Accuracy : {scores[1]}')
 
 
-
 def main():
     num_classes = len(get_classes())
     print(num_classes)
-    x_train, x_test, y_train, y_test = np.load("./dataset.npy", allow_pickle=True)
+    x_train, x_test, y_train, y_test = np.load("./dataset/dataset.npy", allow_pickle=True)
     x_train = x_train.astype("float") / 256
     x_test = x_test.astype("float") / 256
     y_train = np_utils.to_categorical(y_train, num_classes)
