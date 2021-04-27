@@ -27,7 +27,7 @@ def get_classes():
     return class_names
 
 
-def dataset(labels):
+def generate_dataset(labels):
     """generate dataset
 
     Args:
@@ -48,20 +48,28 @@ def dataset(labels):
             image = Image.open(file)
             image = image.convert("RGB")
             image = image.resize((image_size, image_size))
-            data = np.asarray(image)
+            data = np.asarray(image, dtype=object)
             x_data.append(data)
             y_data.append(index)
 
-    x_data = np.array(x_data)
-    y_data = np.array(y_data)
+    x_data = np.array(x_data, dtype=object)
+    y_data = np.array(y_data, dtype=object)
 
     return x_data, y_data
+
+
+def cretate_dataset(x, y):
+    x_train, x_test, y_train, y_test = model_selection.train_test_split(x, y)
+    dataset = (x_train, x_test, y_train, y_test)
+    np.save("./data/dataset.npy", dataset)
+    return dataset
 
 
 def main():
     classes = get_classes()
     num_classes = len(classes)
-    x, y = dataset(classes)
+    x, y = generate_dataset(classes)
+    dataset = cretate_dataset(x, y)
 
 
 if __name__ == '__main__':
