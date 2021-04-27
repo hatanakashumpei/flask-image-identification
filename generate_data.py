@@ -5,9 +5,8 @@ this code is generate numpy dataset
 @ shumpei hatanaka
 """
 
-import os
-import numpy as np
 import glob
+import numpy as np
 from PIL import Image
 from sklearn import model_selection
 
@@ -22,8 +21,8 @@ def get_classes():
     class_names = []
     for data_list_path in data_list_paths:
         name = data_list_path.replace("./data/", "")
-        class_names.append(name) 
-    
+        class_names.append(name)
+
     return class_names
 
 
@@ -59,17 +58,28 @@ def generate_dataset(labels):
 
 
 def cretate_dataset(x, y):
+    """separate dataset
+
+    Args:
+        x (numpy): input data (390 * 50 * 50 * 3)
+        y (numpy): class label (390 * 1)
+
+    Returns:
+        numpy: dataset
+    """
     x_train, x_test, y_train, y_test = model_selection.train_test_split(x, y)
     dataset = (x_train, x_test, y_train, y_test)
     np.save("./data/dataset.npy", dataset)
-    return dataset
+    # return dataset
 
 
 def main():
+    """Run generate_data.py
+    """
     classes = get_classes()
-    num_classes = len(classes)
+    # num_classes = len(classes)
     x, y = generate_dataset(classes)
-    dataset = cretate_dataset(x, y)
+    cretate_dataset(x, y)
 
 
 if __name__ == '__main__':
