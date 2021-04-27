@@ -57,7 +57,6 @@ def model_eval(model, x_test, y_test):
     print(f'Test Accuracy : {scores[1]}')
 
 
-
 def main():
     num_classes = len(get_classes())
     print(num_classes)
