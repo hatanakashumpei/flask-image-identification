@@ -69,7 +69,7 @@ def main(args):
         args (list): sys.argv
     """
     search_name = args[1]
-    save_dir = f"./data/{search_name}"
+    save_dir = f"./img/{search_name}"
     if not os.path.exists(save_dir):
         os.mkdir(save_dir)
     photos = get_flickrapi(search_name)
