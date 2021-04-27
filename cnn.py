@@ -42,8 +42,9 @@ def model_train(x_train, y_train):
                   optimizer=opt,
                   metrics=['accuracy']
                   )
-    
-    model.fit(x_train, y_train, batch_size=32, nb_epoch=100)
+    model.summary()
+
+    model.fit(x_train, y_train, batch_size=16, epochs=100)
 
     model.save("./model/model.h5")
 
@@ -59,7 +60,8 @@ def model_eval(model, x_test, y_test):
 
 def main():
     num_classes = len(get_classes())
-    x_train, x_test, y_train, y_test = np.load("./data/dataset.npy", allow_pickle=True)
+    print(num_classes)
+    x_train, x_test, y_train, y_test = np.load("./dataset.npy", allow_pickle=True)
     x_train = x_train.astype("float") / 256
     x_test = x_test.astype("float") / 256
     y_train = np_utils.to_categorical(y_train, num_classes)

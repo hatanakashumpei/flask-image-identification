@@ -69,7 +69,7 @@ def cretate_dataset(x, y):
     """
     x_train, x_test, y_train, y_test = model_selection.train_test_split(x, y)
     dataset = (x_train, x_test, y_train, y_test)
-    np.save("./data/dataset.npy", dataset)
+    np.save("./dataset.npy", dataset)
     # return dataset
 
 
