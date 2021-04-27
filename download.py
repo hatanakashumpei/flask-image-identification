@@ -11,12 +11,13 @@ import sys
 from urllib import request
 from urllib.request import urlretrieve
 from flickrapi import FlickrAPI
+import secret.api
 
 
 # PARAM
 PARAM = {
-    "KEY": "6c56cfb6290cab4ab7976f1f0f611e4f",
-    "SECRET": "0643c6d81d4e7569",
+    "KEY": secret.api.key,
+    "SECRET": secret.api.secret,
     "WAITTIME": 1
 }
 
