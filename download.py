@@ -78,4 +78,7 @@ def main(args):
 
 if __name__ == '__main__':
     args = sys.argv
-    main(args)
+    if len(args) < 2:
+        print("How to Use: python download.py [search words]")
+    else:
+        main(args)
