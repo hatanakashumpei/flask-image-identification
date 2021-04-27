@@ -1,3 +1,8 @@
 .python-version
 secret/api.py
-data/*/*
+img/*
+*.ipynb
+.ipynb_checkpoints/*
+__pycache__/*
+chapter3/*
+model/*
