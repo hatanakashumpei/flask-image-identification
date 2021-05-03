@@ -5,3 +5,4 @@ secret/api.py
 __pycache__/*
 chapter3/*
 model/*
+flask/*
