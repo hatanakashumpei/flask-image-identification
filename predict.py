@@ -50,9 +50,9 @@ def build_model():
 
     return model
 
-def main():
+def main(filepath):
     classes = get_classes()
-    image = Image.open(sys.argv[1])
+    image = Image.open(filepath)
     image = image.convert("RGB")
     image = image.resize((50, 50))
     data = np.asarray(image) / 255
@@ -68,4 +68,5 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    PATH = sys.argv[1]
+    main(sys.argv[1])
